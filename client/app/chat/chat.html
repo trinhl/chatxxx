@@ -1,0 +1,46 @@
+
+<div class="container">
+	<div>This is the chat view.</div>
+	<!--<div id='content'>
+		<div id='room'></div>
+		<div id='room-list'></div> 
+		<div id='messages'></div>
+
+		<form id='send-form'>
+			<input id='send-message'></input>
+			<input id='send-button' type='submit' value='Send'></input>
+
+			<div id='help'>
+				Chat commands:
+				<ul>
+					<li>Change nickname: <code>/nick [username]</code></li>
+					<li>Join/create room: <code>/join [room name]</code></li>
+				</ul>
+			</div>
+		</form>
+	</div>-->
+
+	<p>{{$ctrl.user}}</p>
+	<p>{{$ctrl.roomName}}</p>
+
+	<div class="row">
+		<div class="col-md-8"></div>
+	    <div class="col-md-4">
+	      <!-- <h1 class="page-header">Features:</h1> -->
+	      <ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
+	        <li><p  uib-tooltip="{{message.info}}">{{message.name}}</p></li>
+	      </ul>
+	      <form class="message-form">
+		    <label>Syncs in realtime across clients</label>
+		    <p class="input-group">
+		      <input type="text" class="form-control" placeholder="Write a new message here." ng-model="$ctrl.newMessage">
+		      <span class="input-group-btn">
+		        <button type="submit" class="btn btn-primary" ng-click="$ctrl.addMessage()">Add New</button>
+		      </span>
+		    </p>
+		  </form>
+	    </div>
+  	</div>
+
+  
+</div>
