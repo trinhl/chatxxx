@@ -13,6 +13,11 @@
   letter-spacing: -1px;
 }
 
+#banner img {
+  width: 1366px;
+  height: 600px;
+}
+
 .hero-unit {
   position: relative;
   padding: 30px 15px;

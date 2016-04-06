@@ -35,7 +35,7 @@ describe('Message API:', function() {
       request(app)
         .post('/api/messages')
         .send({
-          name: 'New Message',
+          mess: 'New Message',
           info: 'This is the brand new message!!!'
         })
         .expect(201)
@@ -50,7 +50,7 @@ describe('Message API:', function() {
     });
 
     it('should respond with the newly created message', function() {
-      newMessage.name.should.equal('New Message');
+      newMessage.mess.should.equal('New Message');
       newMessage.info.should.equal('This is the brand new message!!!');
     });
 
@@ -78,7 +78,7 @@ describe('Message API:', function() {
     });
 
     it('should respond with the requested message', function() {
-      message.name.should.equal('New Message');
+      message.mess.should.equal('New Message');
       message.info.should.equal('This is the brand new message!!!');
     });
 
@@ -91,7 +91,7 @@ describe('Message API:', function() {
       request(app)
         .put('/api/messages/' + newMessage._id)
         .send({
-          name: 'Updated Message',
+          mess: 'Updated Message',
           info: 'This is the updated message!!!'
         })
         .expect(200)
@@ -110,7 +110,7 @@ describe('Message API:', function() {
     });
 
     it('should respond with the updated message', function() {
-      updatedMessage.name.should.equal('Updated Message');
+      updatedMessage.mess.should.equal('Updated Message');
       updatedMessage.info.should.equal('This is the updated message!!!');
     });
 

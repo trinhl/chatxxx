@@ -1,3 +1,16 @@
-.thing-form {
+.message-form {
   margin: 20px 0;
+}
+
+#sendMess{
+	text-align:right;
+	color: blue;
+}
+#recMess{
+	text-align: left;
+	color: gray;
+}
+#message_list{
+	max-height: 400px;
+	overflow-y: auto;
 }

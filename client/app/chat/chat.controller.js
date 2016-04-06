@@ -21,10 +21,15 @@ class ChatComponent {
    });
  }
 
+getnickName() {
+  if(this.nickName){
+    return this.nickName;
+  }
+}
 
 addMessage() {
-    if (this.newMessage) {
-		var data = { name: this.newMessage, user_id: this.user._id };
+    if (this.newMessage) { 
+		var data = { mess: this.newMessage, user_id: this.user._id, room_name: this.roomName, email: this.user.email, user_name: this.user.name };
 		this.$http.post('/api/message', data);
 		this.newMessage = '';
     }
@@ -39,8 +44,11 @@ addMessage() {
   }
 
 
+autoScrollBot() {
+    
+  }
 
-}
+ }
 
 
 angular.module('chatAppApp')

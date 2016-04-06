@@ -61,7 +61,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Messages
 export function index(req, res) {
-  return Message.find({"_id" : ObjectId("56fb9cfd9b72ad1c20ee4718")}).exec()
+  return Message.find({"room_name" : "abc"}).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
