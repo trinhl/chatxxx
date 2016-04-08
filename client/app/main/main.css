@@ -14,8 +14,12 @@
 }
 
 #banner img {
+<<<<<<< HEAD
   width: 1000px;
   height: 550px;
+=======
+  width: 700px;
+>>>>>>> 41af9b426a8c5c498bdf51e6b55889d3c1f81c77
 }
 
 .hero-unit {
