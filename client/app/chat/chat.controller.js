@@ -102,8 +102,9 @@ autoScrollBot() {
       } else {
         alert('Please enter your nickname!')
       }
+      return false;
     }
-    return false;
+
   }
 
 
