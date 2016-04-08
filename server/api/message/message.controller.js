@@ -61,7 +61,9 @@ function handleError(res, statusCode) {
 
 // Gets a list of Messages
 export function index(req, res) {
-  return Message.find({"room_name" : "abc"}).exec()
+  var roomName = req.query.room_name || '';
+  
+  return Message.find({"room_name" : roomName}).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
