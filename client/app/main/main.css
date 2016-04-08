@@ -1,10 +1,13 @@
-.thing-form {
+/*.thing-form {
   margin: 20px 0;
 }
 
 #banner {
   border-bottom: none;
   margin-top: -20px;
+}*/
+.navbar{
+  margin-bottom: 0px;
 }
 
 #banner h1 {
