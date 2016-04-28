@@ -1,9 +1,12 @@
 
 .navbar {
     margin-bottom: 0px;
+
 }
+
 body {
-	font-family: 'Dosis', sans-serif;
+	/*font-family: 'Dosis', sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
     color: #404142;
     font-size: 16px;
 	letter-spacing: 0.8px;
