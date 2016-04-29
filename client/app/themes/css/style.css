@@ -3,7 +3,22 @@
     margin-bottom: 0px;
 
 }
+/*#input-create-room {
+    max-width: 420px;
+    /*height: 50px;* / 
+}*/
+.background-create-room {
+    background-image: url("/assets/images/background.jpg");
+}
 
+#button-create-room {
+  
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+#basic-addon3 {
+    border: none;
+}
 body {
 	/*font-family: 'Dosis', sans-serif;*/
     font-family: 'Open Sans', sans-serif;
@@ -225,7 +240,7 @@ a span.ti-twitter-alt {
 
 .footer {
     background-color: #2a2a2a;
-    margin-top: 30px;
+    margin-top: 0px;
     color: #fff;
 }
 .footer p {

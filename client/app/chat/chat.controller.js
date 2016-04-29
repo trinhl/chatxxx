@@ -22,6 +22,7 @@ class ChatComponent {
 
      this.autoScrollBot();
    });
+   $('[ui-view]').addClass('background-create-room')
  }
 
 getnickName() {

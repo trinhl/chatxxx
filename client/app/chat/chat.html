@@ -1,9 +1,9 @@
 
 <div class="container">
-	<div>This is the chat view.</div>
-
+	<!-- <div>This is the chat view.</div>
+ -->
 	<!-- <p>{{$ctrl.user}}</p> -->
-	<p>{{$ctrl.roomName}}</p>
+	<!-- <p>{{$ctrl.roomName}}</p> -->
 
 	<!-- <p>{{$ctrl.getnickName()}}</p>
 	<p>{{$ctrl.receiveMess}}</p> -->
@@ -37,18 +37,26 @@
   	</div>
 
   	<div class="row" ng-show="!$ctrl.user.name">
-  		<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+  		<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
   			<form role="form" ng-submit="$ctrl.join()">
-  			<legend>Form title</legend>
+  			<br>
+  			<legend>Tên hoặc nickname của bạn</legend>
   		
-  			<div class="form-group">
-  				<label for="">label</label>
-  				<input type="text" ng-model="$ctrl.nickname" class="form-control" id="" placeholder="Input field">
+  			<div class="form-group input-group">
+  				
+  				<input type="text" ng-model="$ctrl.nickname" class="form-control" id="" placeholder="Tên hoặc nickname của bạn">
+  				<span class="input-group-btn">
+  					<button type="submit" class="btn btn-primary">Submit</button>
+  				</span>
   			</div>
-  		
+  			<div class="jumbotron">
+				<div class="container">
+					<p>Vui lòng nhập tên hoặc nickname của bạn để dễ dang liên lạc với bạn bè.</p>
+				</div>
+			</div>
   			
   		
-  			<button type="submit" class="btn btn-primary">Submit</button>
+  			
   		</form>
   		</div>
   		
