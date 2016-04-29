@@ -219,7 +219,7 @@ module.exports = function (grunt) {
     wiredep: {
       options: {
         exclude: [
-          /bootstrap.js/,
+          // /bootstrap.js/,
           '/json3/',
           '/es5-shim/'
         ]

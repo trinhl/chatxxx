@@ -10,7 +10,8 @@
 	<div class="row" ng-show="$ctrl.user.name">
 		<div class="col-md-8">
 
-		<video id="video-conf" autoplay ></video>
+	 <video id="remote" autoplay></video>
+		<video id="local" autoplay ></video>
 
 			<div id="errorMsg"></div>
 		</div>
@@ -19,16 +20,17 @@
 	      <div id="message_list">
 	      	<ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
 	        <li>
-	        	<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}">{{message.mess}}</p>
-	        	<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}">{{message.user_name}}: {{message.mess}}</p>
+	        	<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}" ng-bind-html="message.mess | smilies"></p>
+	        	<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}" ng-bind-html="(message.user_name + ': ' + message.mess) | smilies"></p>
 	        </li>
 	      </ul>
 	      </div>
 	      <form class="message-form">
 		    <label>Syncs in realtime across clients</label>
 		    <p class="input-group">
-		      <input type="text" class="form-control" placeholder="Write a new message here." ng-model="$ctrl.newMessage">
-		      <span class="input-group-btn">
+					<span class="input-group-addon" smilies-selector="$ctrl.newMessage" smilies-placement="right" smilies-title="Smilies"></span>
+					<input type="text" class="form-control" placeholder="Write a new message here." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage">
+					<span class="input-group-btn">
 		        <button type="submit" class="btn btn-primary" ng-click="$ctrl.addMessage()">SEND</button>
 		      </span>
 		    </p>
@@ -57,9 +59,10 @@
   			
   		
   			
+
   		</form>
   		</div>
-  		
+
   	</div>
 
 </div>

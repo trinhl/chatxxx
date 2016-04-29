@@ -1,4 +1,9 @@
 'use strict';
+
+var RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection ||
+                        window.webkitRTCPeerConnection;
+var RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription;
+
 (function(){
 
 class ChatComponent {
@@ -13,6 +18,8 @@ class ChatComponent {
       socket.unsyncUpdates('message');
     });
     this.startVideo();
+    document.title = 'Chat';
+
   }
 
  $onInit() {
@@ -32,7 +39,7 @@ getnickName() {
 }
 
 addMessage() {
-  if (this.newMessage) { 
+  if (this.newMessage) {
 		var data = { mess: this.newMessage, user_id: this.user._id, room_name: this.roomName, email: this.user.email, user_name: this.user.name };
 		this.$http.post('/api/message', data);
 		this.newMessage = '';
@@ -50,17 +57,107 @@ createRoom() {
   return false;
 }
 
+startCall() {
+  // Create an RTCPeerConnection via the polyfill.
+  var STUN = {
+      urls: 'stun:stun.l.google.com:19302'
+  };
+
+  var TURN = {
+      urls: 'turn:turn.bistri.com:80',
+      credential: 'homeo',
+      username: 'homeo'
+  };
+
+  var iceServers = {
+     iceServers: [STUN, TURN]
+  };
+  window.pc1Local = new RTCPeerConnection(iceServers);
+  window.pc1Remote = new RTCPeerConnection(iceServers);
+  pc1Remote.onaddstream = this.gotRemoteStream1.bind(this);
+  pc1Local.onicecandidate = this.iceCallback1Local.bind(this);
+  pc1Remote.onicecandidate = this.iceCallback1Remote.bind(this);
+
+  if (window.localStream) {
+    console.log('-> window.localStream', window.localStream)
+    pc1Local.addStream(window.localStream);
+    pc1Local.createOffer(this.gotDescription1Local, this.onCreateSessionDescriptionError,
+        this.offerOptions);
+  }
+}
+
+gotRemoteStream1(e) {
+  window.remoteVideo.srcObject = e.stream;
+  console.log('pc1: received remote stream');
+}
+
+iceCallback1Local(event) {
+  this.handleCandidate(event.candidate, pc1Remote, 'pc1: ', 'local');
+}
+
+iceCallback1Remote(event) {
+  handleCandidate(event.candidate, pc1Local, 'pc1: ', 'remote');
+}
+
+gotDescription1Local(desc) {
+  window.pc1Local.setLocalDescription(desc);
+  console.log('Offer from pc1Local \n' + desc.sdp);
+  window.pc1Remote.setRemoteDescription(desc);
+  // Since the 'remote' side has no media stream we need
+  // to pass in the right constraints in order for it to
+  // accept the incoming offer of audio and video.
+  window.pc1Remote.createAnswer(gotDescription1Remote,
+      onCreateSessionDescriptionError);
+
+  function gotDescription1Remote(desc) {
+    window.pc1Remote.setLocalDescription(desc);
+    trace('Answer from pc1Remote \n' + desc.sdp);
+    window.pc1Local.setRemoteDescription(desc);
+  }
+
+  function onCreateSessionDescriptionError(error) {
+    trace('Failed to create session description: ' + error.toString());
+  }
+}
+
+onCreateSessionDescriptionError(error) {
+  trace('Failed to create session description: ' + error.toString());
+}
+
+gotDescription1Remote(desc) {
+  window.pc1Remote.setLocalDescription(desc);
+  trace('Answer from pc1Remote \n' + desc.sdp);
+  window.pc1Local.setRemoteDescription(desc);
+}
+
+handleCandidate(candidate, dest, prefix, type) {
+  if (candidate) {
+    dest.addIceCandidate(new RTCIceCandidate(candidate),
+        this.onAddIceCandidateSuccess, this.onAddIceCandidateError);
+    console.log(prefix + 'New ' + type + ' ICE candidate: ' + candidate.candidate);
+  }
+}
+
+onAddIceCandidateSuccess() {
+  trace('AddIceCandidate success.');
+}
+
+onAddIceCandidateError(error) {
+  trace('Failed to add ICE candidate: ' + error.toString());
+}
+
 startVideo() {
-    // Put variables in global scope to make them available to the browser console.
-  var video = document.querySelector('video');
+  // Put variables in global scope to make them available to the browser console.
+  var localVideo = window.localVideo = document.querySelector('video#local');
+  var remoteVideo = window.remoteVideo = document.querySelector('video#remote');
   var constraints = window.constraints = {
-    audio: false,
+    audio: true,
     video: true
   };
   var errorElement = document.querySelector('#errorMsg');
 
   navigator.mediaDevices.getUserMedia(constraints)
-  .then(function(stream) {
+  .then((stream) => {
     var videoTracks = stream.getVideoTracks();
     console.log('Got stream with constraints:', constraints);
     console.log('Using video device: ' + videoTracks[0].label);
@@ -68,7 +165,10 @@ startVideo() {
       console.log('Stream ended');
     };
     window.stream = stream; // make variable available to browser console
-    video.srcObject = stream;
+    window.localStream = stream; // make variable available to browser console
+    localVideo.srcObject = stream;
+
+    this.startCall();
   })
   .catch(function(error) {
     if (error.name === 'ConstraintNotSatisfiedError') {
