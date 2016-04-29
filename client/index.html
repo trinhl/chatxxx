@@ -13,8 +13,9 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
-      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-      <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" />
+      <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+      <link rel='stylesheet' href='bower_components/bootstrap-social/bootstrap-social.css' />
+      <link rel='stylesheet' href='bower_components/angular-smilies/dist/angular-smilies.css' />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -23,7 +24,10 @@
       <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="app/chat/chat.css">
+      <link rel="stylesheet" href="app/main/dosis-font.css">
       <link rel="stylesheet" href="app/main/main.css">
+      <link rel="stylesheet" href="app/main/style.css">
+      <link rel="stylesheet" href="app/main/themify-icons.css">
       <link rel="stylesheet" href="app/themes/css/bootstrap-theme.css">
       <link rel="stylesheet" href="app/themes/css/bootstrap-theme.min.css">
       <link rel="stylesheet" href="app/themes/css/bootstrap.css">
@@ -37,6 +41,8 @@
       <!-- endinjector -->
     <!-- endbuild -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+
+
   </head>
   <body ng-app="chatAppApp">
     <!--[if lt IE 7]>
@@ -67,6 +73,7 @@
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>
       <script src="bower_components/angular-cookies/angular-cookies.js"></script>
       <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -75,8 +82,10 @@
       <script src="bower_components/angular-socket-io/socket.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
+      <script src="bower_components/angular-smilies/dist/angular-smilies.js"></script>
+      <script src="bower_components/eventEmitter/EventEmitter.js"></script>
       <!-- endbower -->
-      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
@@ -120,5 +129,11 @@
       <script src="components/util/util.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
+
+    <!-- Angular Smiles -->
+    <!-- <script src="../angular/angular.min.js"></script>
+    <script src="../angular-sanitize/angular-sanitize.min.js"></script> -->
+
+    <!-- <script src="../angular-bootstrap/ui-bootstrap-tpls.min.js"></script> -->
   </body>
 </html>

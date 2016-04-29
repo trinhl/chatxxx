@@ -10,7 +10,8 @@ angular.module('chatAppApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
-  'validation.match'
+  'validation.match',
+  'angular-smilies'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

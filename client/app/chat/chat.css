@@ -14,3 +14,9 @@
 	max-height: 400px;
 	overflow-y: auto;
 }
+
+video#local {
+  border: 2px solid #DDD;
+  width: 150px;
+  height: 150px;
+}
