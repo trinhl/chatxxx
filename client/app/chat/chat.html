@@ -26,12 +26,12 @@
 	      </ul>
 	      </div>
 	      <form class="message-form">
-		    <label>Syncs in realtime across clients</label>
+		    <!-- <label>Syncs in realtime across clients</label> -->
 		    <p class="input-group">
 					<span class="input-group-addon" smilies-selector="$ctrl.newMessage" smilies-placement="right" smilies-title="Smilies"></span>
-					<input type="text" class="form-control" placeholder="Write a new message here." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage">
+					<input type="text" class="form-control" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage">
 					<span class="input-group-btn">
-		        <button type="submit" class="btn btn-primary" ng-click="$ctrl.addMessage()">SEND</button>
+		        <button type="submit" class="btn btn-primary" ng-click="$ctrl.addMessage()">Gửi</button>
 		      </span>
 		    </p>
 		  </form>
@@ -43,12 +43,12 @@
   			<form role="form" ng-submit="$ctrl.join()">
   			<br>
   			<legend>Tên hoặc nickname của bạn</legend>
-  		
+
   			<div class="form-group input-group">
-  				
+
   				<input type="text" ng-model="$ctrl.nickname" class="form-control" id="" placeholder="Tên hoặc nickname của bạn">
   				<span class="input-group-btn">
-  					<button type="submit" class="btn btn-primary">Submit</button>
+  					<button type="submit" class="btn btn-primary"><span class="ti-arrow-right"></span></button>
   				</span>
   			</div>
   			<div class="jumbotron">
@@ -56,9 +56,9 @@
 					<p>Vui lòng nhập tên hoặc nickname của bạn để dễ dang liên lạc với bạn bè.</p>
 				</div>
 			</div>
-  			
-  		
-  			
+
+
+
 
   		</form>
   		</div>

@@ -200,6 +200,7 @@ autoScrollBot() {
   join() {
       if (this.nickname.length > 0){
         this.user.name = this.nickname;
+        this.user.email = this.nickname;
       } else {
         alert('Please enter your nickname!')
       }
