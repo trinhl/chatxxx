@@ -2,5 +2,7 @@
 
 angular.module('chatAppApp.admin', [
   'chatAppApp.auth',
-  'ui.router'
+  'ui.router',
+  'ui.bootstrap',
+  'ngDialog'
 ]);

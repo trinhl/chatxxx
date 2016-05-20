@@ -11,7 +11,8 @@ angular.module('chatAppApp', [
   'ui.router',
   'ui.bootstrap',
   'validation.match',
-  'angular-smilies'
+  'angular-smilies',
+  'ngDialog'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

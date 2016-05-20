@@ -25,6 +25,7 @@ module.exports = function(config) {
       'client/bower_components/angular-validation-match/dist/angular-validation-match.min.js',
       'client/bower_components/angular-smilies/dist/angular-smilies.js',
       'client/bower_components/eventEmitter/EventEmitter.js',
+      'client/bower_components/ng-dialog/js/ngDialog.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'node_modules/socket.io-client/socket.io.js',

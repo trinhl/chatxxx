@@ -1,12 +1,47 @@
 <div class="container">
-  <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
-  <ul class="list-group user-list">
+  <!-- <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p> -->
+  <!-- <ul class="list-group user-list">
     <li class="list-group-item" ng-repeat="user in admin.users">
 	    <div class="user-info">
 	        <strong>{{user.name}}</strong><br>
 	        <span class="text-muted">{{user.email}}</span>
 	    </div>
-        <a ng-click="admin.delete(user)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+        <a ng-click="admin.delete(user)" class="trash"><span class="fa fa-trash fa-2x">Delete</span></a>
     </li>
-  </ul>
+  </ul> -->
+  <div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 1042px">
+  <colgroup>
+  <col style="width: 50px">
+  <col style="width: 401px">
+  <col style="width: 401px">
+  <col style="width: 190px">
+  </colgroup>
+  <tr>
+    <th class="tg-rd2y">#</th>
+    <th class="tg-031e">Username</th>
+    <th class="tg-031e">Email</th>
+    <th class="tg-031e">Action</th>
+  </tr>
+  <tr ng-repeat="user in admin.users">
+    <td class="tg-031e">{{ $index + 1 }}</td>
+    <td class="tg-031e">{{user.name}}</td>
+    <td class="tg-031e">{{user.email}}</td>
+    <td class="tg-031e">
+      <button ng-click="admin.openConfirm()">My Modal</button>
+
+      <script type="text/ng-template" id="templateId">
+        <div class="ngdialog-message">
+            <h3>ngDialog template</h3>
+            <p>Dialog containing work in which a user has to perform a task (e.g. editing data).</p>
+            <p>'Save' would save the task's actions, while 'Cancel' would cause the task's actions to be lost.</p>
+            <p>...other controls here...</p>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('Cancel')">Cancel</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm('Save')">Save</button>
+        </div>
+    </script>
+    </td>
+  </tr>
+  </table></div>
 </div>

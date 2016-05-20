@@ -1,6 +1,6 @@
 .trash { color:rgb(209, 91, 71); }
 
-.user-list li {
+/*.user-list li {
 	display: flex;
 	border: none;
 	border-bottom: 1px lightgray solid;
@@ -16,4 +16,9 @@
 	display: flex;
 	align-items: center;
 	text-decoration: none;
-}
+}*/
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#999;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:13px 20px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#999;color:#444;background-color:#F7FDFA;border-top-width:1px;border-bottom-width:1px;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:13px 20px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#26ADE4;border-top-width:1px;border-bottom-width:1px;}
+.tg .tg-rd2y{font-size:16px}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}

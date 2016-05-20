@@ -7,9 +7,10 @@ var RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSession
 (function(){
 
 class ChatComponent {
-  constructor($http, $scope, socket, Auth, $stateParams) {
+  constructor($http, $scope, socket, Auth, $stateParams, $sce, VideoStream, Room) {
     this.$http = $http;
     this.socket = socket;
+    this.VideoStream = VideoStream;
     this.receiveMess = [];
     this.user = Auth.getCurrentUser();
     this.roomName = $stateParams.room_name;
@@ -17,9 +18,37 @@ class ChatComponent {
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('message');
     });
-    this.startVideo();
+    // this.startVideo();
     document.title = 'Chat';
 
+
+    var stream;
+    VideoStream.get()
+    .then(function(s) {
+      stream = s;
+      Room.init(stream);
+      stream = URL.createObjectURL(stream);
+      Room.joinRoom($stateParams.room_name);
+    }, function () {
+      $scope.error = 'No audio/video permissions. Please refresh your browser and allow the audio/video capturing.';
+    });
+    $scope.peers = [];
+    Room.on('peer.stream', function (peer) {
+      console.log('Client connected, adding new stream');
+      $scope.peers.push({
+        id: peer.id,
+        stream: URL.createObjectURL(peer.stream)
+      });
+    });
+    Room.on('peer.disconnected', function (peer) {
+      console.log('Client disconnected, removing stream');
+      $scope.peers = $scope.peers.filter(function (p) {
+        return p.id !== peer.id;
+      });
+    });
+    $scope.getLocalVideo = function () {
+      return $sce.trustAsResourceUrl(stream);
+    };
   }
 
  $onInit() {

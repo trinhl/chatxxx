@@ -17,6 +17,8 @@
       <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
       <link rel='stylesheet' href='bower_components/bootstrap-social/bootstrap-social.css' />
       <link rel='stylesheet' href='bower_components/angular-smilies/dist/angular-smilies.css' />
+      <link rel='stylesheet' href='bower_components/ng-dialog/css/ngDialog.css' />
+      <link rel='stylesheet' href='bower_components/ng-dialog/css/ngDialog-theme-default.css' />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -82,6 +84,7 @@
       <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
       <script src="bower_components/angular-smilies/dist/angular-smilies.js"></script>
       <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+      <script src="bower_components/ng-dialog/js/ngDialog.js"></script>
       <!-- endbower -->
       <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
       <script src="socket.io-client/socket.io.js"></script>
@@ -92,9 +95,12 @@
       <script src="app/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/themes/js/jquery.min.js"></script>
+      <script src="app/themes/js/jquery.easing.min.js"></script>
+      <script src="app/account/login/login.controller.js"></script>
+      <script src="app/account/settings/settings.controller.js"></script>
+      <script src="app/account/signup/signup.controller.js"></script>
       <script src="app/admin/admin.controller.js"></script>
-      <script src="app/account/account.js"></script>
+      <script src="app/Io/Io.service.js"></script>
       <script src="app/admin/admin.router.js"></script>
       <script src="app/app.constant.js"></script>
       <script src="app/chat/adapter.js"></script>
@@ -106,11 +112,12 @@
       <script src="app/main/main.js"></script>
       <script src="app/themes/js/bootstrap.js"></script>
       <script src="app/themes/js/bootstrap.min.js"></script>
-      <script src="app/themes/js/jquery.easing.min.js"></script>
-      <script src="app/account/login/login.controller.js"></script>
+      <script src="app/Room/Room.service.js"></script>
+      <script src="app/themes/js/jquery.min.js"></script>
       <script src="app/themes/js/scrolling-nav.js"></script>
       <script src="app/themes/js/validator.js"></script>
-      <script src="app/account/settings/settings.controller.js"></script>
+      <script src="app/videoPlayer/videoPlayer.directive.js"></script>
+      <script src="app/VideoStream/VideoStream.service.js"></script>
       <script src="components/auth/auth.service.js"></script>
       <script src="components/auth/interceptor.service.js"></script>
       <script src="components/auth/router.decorator.js"></script>
@@ -123,7 +130,7 @@
       <script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
       <script src="components/oauth-buttons/oauth-buttons.directive.js"></script>
       <script src="components/socket/socket.service.js"></script>
-      <script src="app/account/signup/signup.controller.js"></script>
+      <script src="app/account/account.js"></script>
       <script src="components/util/util.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
