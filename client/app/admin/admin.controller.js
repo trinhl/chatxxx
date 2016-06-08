@@ -14,14 +14,6 @@ class AdminController {
     this.users.splice(this.users.indexOf(user), 1);
   }
 
-  clickToOpen () {
-        this.ngDialog.open({ template: 'templateId' });
-    };
-
-  test ()
-  {
-      alert("AaA");
-  }
 }
 
 angular.module('chatAppApp.admin')
