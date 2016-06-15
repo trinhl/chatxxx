@@ -220,7 +220,7 @@ startVideo() {
 }
 
 autoScrollBot() {
-  setInterval(function() {
+  setTimeout(function() {
     var elem = document.getElementById('message_list');
     elem.scrollTop = elem.scrollHeight + 200;
   }, 50);

@@ -8,7 +8,7 @@
 }
 #recMess{
 	text-align: left;
-	color: gray;
+	color: rgba(255, 255, 255, 0.5);
 }
 /*#message_list{
 	min-height: 400px;

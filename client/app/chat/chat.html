@@ -46,7 +46,7 @@
 				      <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure> -->
 				  </div>
 				  <div class="messages" id="message_list">
-					  <div class="messages-content" id="message_list">
+					  <div class="messages-content">
 					  	<ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
 						<li>
 							<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}" ng-bind-html="message.mess | smilies"></p>
@@ -137,17 +137,34 @@
 			</div>
 
 		</div>
-		<script>
+		<script type='text/javascript'>
 			window.setInterval(function() {
 			  var elem = document.getElementById('message_list');
-			  elem.scrollTop = elem.scrollHeight + 200;
+			  elem.scrollTop = elem.scrollHeight;
 			}, 50);
+
 			// autoScrollBot() {
 			//   setInterval(function() {
 			//     var elem = document.getElementById('message_list');
 			//     elem.scrollTop = elem.scrollHeight + 200;
 			//   }, 50);
 			// }
-		</script>
 
+			//element.scrollTop = element.scrollHeight - element.clientHeight;
+
+			
+// function ScrollDiv(){
+
+//    if(document.getElementById('message_list').scrollTop<(document.getElementById('message_list').scrollHeight-document.getElementById('message_list').offsetHeight)){-1
+//          document.getElementById('message_list').scrollTop=document.getElementById('message_list').scrollTop+1
+//          }
+//    else {document.getElementById('message_list').scrollTop=0;}
+// }
+
+// setInterval(ScrollDiv,50)
+
+
+
+		</script>
+<br>
 	</div>
