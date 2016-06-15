@@ -240,7 +240,7 @@ a span.ti-twitter-alt {
 }
 
 
-.footer {
+/*.footer {
     background-color: #2a2a2a;
     margin-top: 0px;
     color: #fff;
@@ -264,7 +264,7 @@ ul.footer-menu li a {
 }
 ul.footer-menu li a:hover {
     color: #dd5138;
-}
+}*/
 
 
 .contact {
@@ -334,14 +334,14 @@ ul.footer-menu li a:hover {
     .speaker .feature {
         width: 100%
     }
-    .footer-credit {
+   /* .footer-credit {
         text-align: center;
         padding: 40px 20px;
     }
     ul.footer-menu {
         text-align: center;
         margin-top: 30px;
-    }
+    }*/
 }
 
 
@@ -356,9 +356,9 @@ ul.footer-menu li a:hover {
         width: 49%;
         margin-right: 7px;
     }
-    ul.footer-menu {
+    /*ul.footer-menu {
         margin-top: 0;
-    }
+    }*/
 }
 
 
