@@ -8,8 +8,10 @@
     /*height: 50px;* / 
 }*/
 .background-create-room {
-    background-image: url("/assets/images/background.jpg");
+  background: url("/assets/img/backgroundblur.jpg");
+ /* -webkit-filter: blur(80px);*/
 }
+
 
 #button-create-room {
   
