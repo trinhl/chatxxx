@@ -353,6 +353,9 @@ Custom Srollbar
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
+::-webkit-scrollbar { 
+    display: none; 
+}
 
 /*--------------------
 Bounce
