@@ -220,14 +220,18 @@ startVideo() {
 }
 
 autoScrollBot() {
-  setTimeout(function() {
-    var elem = document.getElementsByClassName('messages-content');
-    elem.scrollTop = elem.scrollHeight + 200;
-  }, 50);
-  // $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
-  //     scrollInertia: 10,
-  //     timeout: 0
-  //   });
+  // setTimeout(function() {
+  //   var elem = document.getElementsByClassName('messages');
+  //   elem.scrollTop = elem.scrollHeight + 250 + 'px'
+  // }, 50);
+  var height = 0;
+  $('.messages p').each(function(i, value){
+    height += parseInt($(this).height());
+  });
+
+  height += 50;
+
+  $('.messages').animate({scrollTop: height});
 }
 
   join() {
