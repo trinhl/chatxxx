@@ -253,3 +253,6 @@ angular.module('chatAppApp')
   });
 
 })();
+
+
+

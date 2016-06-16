@@ -20,8 +20,9 @@
 
 				<div id="errorMsg"></div>
 			</div>
-
+<br>
 			<div class="col-md-4">
+			<form role="form">
 				<div class="chat">
 				  <div class="chat-title">
 				    <!-- <h1>Fabio Ottaviani</h1>
@@ -61,6 +62,7 @@
 
 				  </div>
 				</div>
+				</form>
 			</div>
 			<!-- <div class="col-md-4">
 
@@ -89,14 +91,17 @@
 
 
 
-</div>
+</div class="container">
 
 		<div class="row" ng-show="!$ctrl.user.name">
-			<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-				<form role="form" ng-submit="$ctrl.join()">
-					<br>
-					<legend>Tên hoặc nickname của bạn</legend>
+		<div class="col-md-2">
 
+			</div>
+			<div class="col-md-8">
+				<form role="form" ng-submit="$ctrl.join()">	
+					<br>
+					<h2 class="h2text">Tên hoặc nickname của bạn</h2>
+<br>
 					<div class="form-group input-group">
 
 						<input type="text" ng-model="$ctrl.nickname" class="form-control" id="" placeholder="Tên hoặc nickname của bạn">
@@ -113,10 +118,12 @@
 			</div>
 
 		</div>
+
+
 		<script type='text/javascript'>
 			window.setInterval(function() {
 			  var elem = document.getElementsByClassName('messages-content');
-			  elem.scrollTop = elem.scrollHeight;
+			  elem.scrollTop = elem.scrollHeight + 200;
 			}, 50);
 		</script>
 <br>
