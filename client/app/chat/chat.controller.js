@@ -54,9 +54,8 @@ class ChatComponent {
  $onInit() {
    this.$http.get('/api/message?room_name=' + this.roomName).then(response => {
      this.receiveMess = response.data;
-     this.socket.syncUpdates('message', this.receiveMess);
-
      this.autoScrollBot();
+     this.socket.syncUpdates('message', this.receiveMess);
    });
    $('[ui-view]').addClass('background-create-room')
  }
@@ -72,7 +71,6 @@ addMessage() {
 		var data = { mess: this.newMessage, user_id: this.user._id, room_name: this.roomName, email: this.user.email, user_name: this.user.name };
 		this.$http.post('/api/message', data);
 		this.newMessage = '';
-
     this.autoScrollBot();
   }
 }
@@ -224,14 +222,18 @@ autoScrollBot() {
   //   var elem = document.getElementsByClassName('messages');
   //   elem.scrollTop = elem.scrollHeight + 250 + 'px'
   // }, 50);
-  var height = 0;
-  $('.messages p').each(function(i, value){
-    height += parseInt($(this).height());
-  });
-
-  height += 50;
-
-  $('.messages').animate({scrollTop: height});
+  // var height = 0;
+  // $('.messages p').each(function(i, value){
+  //   height += parseInt($(this).height());
+  // });
+  //
+  // height = $('.messages').scrollHeight - 450;
+  //
+  // $('.messages').animate({scrollTop: height});
+  $(document).ready(function(){
+    $('.messages').animate({
+      scrollTop: $('.messages')[0].scrollHeight}, 2000);
+    });
 }
 
   join() {

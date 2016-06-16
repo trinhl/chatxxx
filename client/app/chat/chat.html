@@ -40,25 +40,13 @@
 						</div>
 					</div>
 					<div class="message-box">
-						<!-- <textarea type="text" class="message-input" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage"></textarea> -->
-						<!-- <button type="submit" class="message-submit">Send</button> -->
-						<input type="text" class="message-input" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage">
-						<button type="submit" class="message-submit" ng-click="$ctrl.addMessage()">Gửi</button>
-
-						<!-- <form class="message-form">
-
-						<p class="input-group">
-						<span class="input-group-addon" smilies-selector="$ctrl.newMessage" smilies-placement="right" smilies-title="Smilies"></span>
-						<input type="text" class="form-control" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage">
-						<span class="input-group-btn">
-						<button type="submit" class="btn btn-primary" ng-click="$ctrl.addMessage()">Gửi</button>
-					</span>
-				</p>
-			</form> -->
-
-		</div>
-	</div>
-</div>
+						<form class="message-form">
+							<input type="text" class="message-input" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage">
+							<button type="submit" class="message-submit" ng-click="$ctrl.addMessage()">Gửi</button>
+						</form>
+					</div>
+				</div>
+			</div>
 <!-- <div class="col-md-4">
 
 <div id="message_list">
@@ -82,10 +70,6 @@
 
 </div> -->
 </div>
-
-
-
-
 </div>
 
 <div class="row" ng-show="!$ctrl.user.name">
@@ -110,14 +94,4 @@
 	</div>
 
 </div>
-<!-- <script type='text/javascript'>
-var height = 0;
-$('messages p').each(function(i, value){
-    height += parseInt($(this).height());
-});
-
-height += '';
-
-$('messages').animate({scrollTop: height});
-</script> -->
 </div>
