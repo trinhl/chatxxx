@@ -20,40 +20,45 @@
 
 				<div id="errorMsg"></div>
 			</div>
-
+			<br>
 			<div class="col-md-4">
-				<div class="chat">
-					<div class="chat-title">
-						<!-- <h1>Fabio Ottaviani</h1>
-						<h2>Supah</h2>
-						<figure class="avatar">
-						<img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure> -->
-					</div>
-					<div class="messages" id="message_list">
-						<div class="messages-content">
-							<ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
-								<li>
-									<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}" ng-bind-html="message.mess | smilies"></p>
-									<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}" ng-bind-html="(message.user_name + ': ' + message.mess) | smilies"></p>
-								</li>
-							</ul>
+				<form role="form">
+					<div class="chat">
+						<div class="chat-title">
+							<!-- <h1>Fabio Ottaviani</h1>
+							<h2>Supah</h2>
+							<figure class="avatar">
+							<img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure> -->
 						</div>
-					</div>
-					<div class="message-box">
-						<form class="message-form">
+						<div class="messages" id="message_list">
+							<div class="messages-content">
+								<ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
+									<li>
+										<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}" ng-bind-html="message.mess | smilies"></p>
+										<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}" ng-bind-html="(message.user_name + ': ' + message.mess) | smilies"></p>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="message-box">
+							<!-- <textarea type="text" class="message-input" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage"></textarea> -->
+							<!-- <button type="submit" class="message-submit">Send</button> -->
 							<input type="text" class="message-input" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage">
 							<button type="submit" class="message-submit" ng-click="$ctrl.addMessage()">Gửi</button>
-						</form>
+						</div>
 					</div>
-				</div>
+				</form>
 			</div>
-<!-- <div class="col-md-4">
+		</div>
+		<br>
+	</div>
+	<!-- <div class="col-md-4">
 
-<div id="message_list">
-<ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
-<li>
-<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}" ng-bind-html="message.mess | smilies"></p>
-<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}" ng-bind-html="(message.user_name + ': ' + message.mess) | smilies"></p>
+	<div id="message_list">
+	<ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
+	<li>
+	<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}" ng-bind-html="message.mess | smilies"></p>
+	<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}" ng-bind-html="(message.user_name + ': ' + message.mess) | smilies"></p>
 </li>
 </ul>
 </div>
@@ -69,28 +74,35 @@
 </form>
 
 </div> -->
-</div>
-</div>
+
+</div class="container">
+
 
 <div class="row" ng-show="!$ctrl.user.name">
-	<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+	<div class="col-md-2">
+
+	</div>
+	<div class="col-md-8">
 		<form role="form" ng-submit="$ctrl.join()">
 			<br>
-			<legend>Tên hoặc nickname của bạn</legend>
-
+			<h2 class="h2text">Tên hoặc nickname của bạn</h2>
+			<br>
 			<div class="form-group input-group">
+
 
 				<input type="text" ng-model="$ctrl.nickname" class="form-control" id="" placeholder="Tên hoặc nickname của bạn">
 				<span class="input-group-btn">
 					<button type="submit" class="btn btn-primary"><span class="ti-arrow-right"></span></button>
 				</span>
 			</div>
+
 			<div class="jumbotron">
 				<div class="container">
 					<p>Vui lòng nhập tên hoặc nickname của bạn để dễ dang liên lạc với bạn bè.</p>
 				</div>
 			</div>
 		</form>
+
 	</div>
 
 </div>

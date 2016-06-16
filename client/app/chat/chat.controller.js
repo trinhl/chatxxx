@@ -218,18 +218,6 @@ startVideo() {
 }
 
 autoScrollBot() {
-  // setTimeout(function() {
-  //   var elem = document.getElementsByClassName('messages');
-  //   elem.scrollTop = elem.scrollHeight + 250 + 'px'
-  // }, 50);
-  // var height = 0;
-  // $('.messages p').each(function(i, value){
-  //   height += parseInt($(this).height());
-  // });
-  //
-  // height = $('.messages').scrollHeight - 450;
-  //
-  // $('.messages').animate({scrollTop: height});
   $(document).ready(function(){
     $('.messages').animate({
       scrollTop: $('.messages')[0].scrollHeight}, 2000);
