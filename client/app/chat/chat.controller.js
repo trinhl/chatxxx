@@ -221,9 +221,13 @@ startVideo() {
 
 autoScrollBot() {
   setTimeout(function() {
-    var elem = document.getElementById('message_list');
+    var elem = document.getElementsByClassName('messages-content');
     elem.scrollTop = elem.scrollHeight + 200;
   }, 50);
+  // $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
+  //     scrollInertia: 10,
+  //     timeout: 0
+  //   });
 }
 
   join() {

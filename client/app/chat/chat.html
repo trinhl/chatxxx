@@ -1,21 +1,5 @@
 
 <div class="container">
-	<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
-
-
-	<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel">Modal header</h3>
-		</div>
-		<div class="modal-body">
-			<p>One fine body…</p>
-		</div>
-		<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-			<button class="btn btn-primary">Save changes</button>
-		</div>
-	</div>
 
 	<!-- <div>This is the chat view.</div>
 -->
@@ -45,31 +29,20 @@
 				    <figure class="avatar">
 				      <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure> -->
 				  </div>
-				  <div class="messages" id="message_list">
-					  <div class="messages-content">
-					  	<ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
-						<li>
-							<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}" ng-bind-html="message.mess | smilies"></p>
-							<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}" ng-bind-html="(message.user_name + ': ' + message.mess) | smilies"></p>
-						</li>
-						</ul>
-					  </div>
-				    
-				  </div>
+					<div class="messages" id="message_list">
+						<div class="messages-content">
+							<ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
+								<li>
+									<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}" ng-bind-html="message.mess | smilies"></p>
+									<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}" ng-bind-html="(message.user_name + ': ' + message.mess) | smilies"></p>
+								</li>
+							</ul>
+						</div>
+					</div>
 				  <div class="message-box">
-				    <!-- <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
-				    <button type="submit" class="message-submit">Send</button> -->
-
-
-					<!-- <label>Syncs in realtime across clients</label> -->
-<<<<<<< HEAD
-
-
-=======
-					
->>>>>>> ec7973b62c5f30e70ee1f59c3ac7a9670e3921ab
+				    <!-- <textarea type="text" class="message-input" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage"></textarea> -->
+				    <!-- <button type="submit" class="message-submit">Send</button> -->
 						<input type="text" class="message-input" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage">
-
 						<button type="submit" class="message-submit" ng-click="$ctrl.addMessage()">Gửi</button>
 
 
@@ -87,8 +60,6 @@
 					</form> -->
 
 				  </div>
-				 
-
 				</div>
 			</div>
 			<!-- <div class="col-md-4">
@@ -144,32 +115,9 @@
 		</div>
 		<script type='text/javascript'>
 			window.setInterval(function() {
-			  var elem = document.getElementById('message_list');
+			  var elem = document.getElementsByClassName('messages-content');
 			  elem.scrollTop = elem.scrollHeight;
 			}, 50);
-
-			// autoScrollBot() {
-			//   setInterval(function() {
-			//     var elem = document.getElementById('message_list');
-			//     elem.scrollTop = elem.scrollHeight + 200;
-			//   }, 50);
-			// }
-
-			//element.scrollTop = element.scrollHeight - element.clientHeight;
-
-			
-// function ScrollDiv(){
-
-//    if(document.getElementById('message_list').scrollTop<(document.getElementById('message_list').scrollHeight-document.getElementById('message_list').offsetHeight)){-1
-//          document.getElementById('message_list').scrollTop=document.getElementById('message_list').scrollTop+1
-//          }
-//    else {document.getElementById('message_list').scrollTop=0;}
-// }
-
-// setInterval(ScrollDiv,50)
-
-
-
 		</script>
 <br>
 	</div>
