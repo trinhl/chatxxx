@@ -8,15 +8,15 @@
 }
 #recMess{
 	text-align: left;
-	color: gray;
+	color: rgba(255, 255, 255, 0.5);
 }
-#message_list{
+/*#message_list{
 	min-height: 400px;
 	overflow-y: auto;
   pading-top: 50px;
   background-color: white;
 }
-
+*/
 video#local {
   border: 2px solid #DDD;
   width: 150px;

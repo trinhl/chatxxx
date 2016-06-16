@@ -49,7 +49,8 @@ Chat
           transform: translate(0%, 0%);*/
   width: 300px;
   height: 80vh;
-  max-height: 500px;
+  min-height: 400px;
+  overflow-y: auto;
   z-index: 2;
   overflow: hidden;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
@@ -127,6 +128,8 @@ Messages
   overflow: hidden;
   position: relative;
   width: 100%;
+  min-height: 400px;
+  overflow-y: auto;
 }
 .messages .messages-content {
   position: absolute;
@@ -135,7 +138,21 @@ Messages
   height: 101%;
   width: 100%;
 }
-.messages .message {
+#sendMess {
+  clear: both;
+  float: right;
+  padding: 6px 10px 7px;
+  border-radius: 10px 10px 0px 10px;
+  background: linear-gradient(120deg, #248A52, #257287);
+  margin: 8px 0;
+  font-size: 11px;
+  line-height: 1.4;
+  margin-right: 5px;
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#recMess {
   clear: both;
   float: left;
   padding: 6px 10px 7px;
@@ -144,10 +161,11 @@ Messages
   margin: 8px 0;
   font-size: 11px;
   line-height: 1.4;
-  margin-left: 35px;
+  margin-left: 5px;
   position: relative;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
+
 .messages .message .timestamp {
   position: absolute;
   bottom: -15px;
@@ -336,6 +354,10 @@ Custom Srollbar
 
 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
   background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
 }
 
 /*--------------------

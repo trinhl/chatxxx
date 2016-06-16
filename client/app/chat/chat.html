@@ -40,18 +40,21 @@
 			<div class="col-md-4">
 				<div class="chat">
 				  <div class="chat-title">
-				    <h1>Fabio Ottaviani</h1>
+				    <!-- <h1>Fabio Ottaviani</h1>
 				    <h2>Supah</h2>
 				    <figure class="avatar">
-				      <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure>
+				      <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure> -->
 				  </div>
-				  <div class="messages">
-				    <ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
+				  <div class="messages" id="message_list">
+					  <div class="messages-content">
+					  	<ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
 						<li>
 							<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}" ng-bind-html="message.mess | smilies"></p>
 							<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}" ng-bind-html="(message.user_name + ': ' + message.mess) | smilies"></p>
 						</li>
-					</ul>
+						</ul>
+					  </div>
+				    
 				  </div>
 				  <div class="message-box">
 				    <!-- <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
@@ -59,8 +62,12 @@
 
 
 					<!-- <label>Syncs in realtime across clients</label> -->
+<<<<<<< HEAD
 
 
+=======
+					
+>>>>>>> ec7973b62c5f30e70ee1f59c3ac7a9670e3921ab
 						<input type="text" class="message-input" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage">
 
 						<button type="submit" class="message-submit" ng-click="$ctrl.addMessage()">Gửi</button>
@@ -80,6 +87,7 @@
 					</form> -->
 
 				  </div>
+				 
 
 				</div>
 			</div>
@@ -134,5 +142,34 @@
 			</div>
 
 		</div>
+		<script type='text/javascript'>
+			window.setInterval(function() {
+			  var elem = document.getElementById('message_list');
+			  elem.scrollTop = elem.scrollHeight;
+			}, 50);
 
+			// autoScrollBot() {
+			//   setInterval(function() {
+			//     var elem = document.getElementById('message_list');
+			//     elem.scrollTop = elem.scrollHeight + 200;
+			//   }, 50);
+			// }
+
+			//element.scrollTop = element.scrollHeight - element.clientHeight;
+
+			
+// function ScrollDiv(){
+
+//    if(document.getElementById('message_list').scrollTop<(document.getElementById('message_list').scrollHeight-document.getElementById('message_list').offsetHeight)){-1
+//          document.getElementById('message_list').scrollTop=document.getElementById('message_list').scrollTop+1
+//          }
+//    else {document.getElementById('message_list').scrollTop=0;}
+// }
+
+// setInterval(ScrollDiv,50)
+
+
+
+		</script>
+<br>
 	</div>
