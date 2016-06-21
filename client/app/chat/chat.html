@@ -14,6 +14,7 @@
 		<video id="remote" autoplay></video>
 		<video id="local" autoplay ></video> -->
 
+<<<<<<< HEAD
 		<video-player vid-src="{{getLocalVideo()}}"></<video-player>
 			<video-player trust-src="{{getLocalVideo()}}"></video-player>
 
@@ -43,6 +44,38 @@
 									<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}" ng-bind-html="(message.user_name + ': ' + message.mess) | smilies"></p>
 								</li>
 							</ul>
+=======
+		<div id="remote"></div>
+		<div id="local"></div>
+
+				<div id="errorMsg">{{error}}</div>
+	</div>
+	<br>
+			<div class="col-md-4">
+				<form role="form">
+					<div class="chat">
+						<div class="chat-title">
+							<!-- <h1>Fabio Ottaviani</h1>
+							<h2>Supah</h2>
+							<figure class="avatar">
+							<img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure> -->
+						</div>
+						<div class="messages" id="message_list">
+							<div class="messages-content">
+								<ul style="list-style-type:none" ng-repeat="message in $ctrl.receiveMess">
+									<li>
+										<p  ng-if="message.email === $ctrl.user.email" id="sendMess" uib-tooltip="{{message.info}}" ng-bind-html="message.mess | smilies"></p>
+										<p  ng-if="message.email !== $ctrl.user.email" id="recMess" uib-tooltip="{{message.info}}" ng-bind-html="(message.user_name + ': ' + message.mess) | smilies"></p>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="message-box">
+							<!-- <textarea type="text" class="message-input" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage"></textarea> -->
+							<!-- <button type="submit" class="message-submit">Send</button> -->
+							<input type="text" class="message-input" placeholder="Nhập tin nhắn..." ng-model="$ctrl.newMessage" focus-on-change="$ctrl.newMessage">
+							<button type="submit" class="message-submit" ng-click="$ctrl.addMessage()">Gửi</button>
+>>>>>>> a8861c0f07da329f51db2aaea75a298b8745efd8
 						</div>
 					</div>
 					<div class="message-box">

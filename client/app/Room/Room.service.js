@@ -47,7 +47,7 @@ angular.module('chatAppApp')
       }
 
       function handleMessage(data) {
-        alert(data)
+        // console.log('----------------', data)
         var pc = getPeerConnection(data.by);
         switch (data.type) {
           case 'sdp-offer':
@@ -56,6 +56,8 @@ angular.module('chatAppApp')
               pc.createAnswer(function (sdp) {
                 pc.setLocalDescription(sdp);
                 socket.emit('msg', { by: currentId, to: data.by, sdp: sdp, type: 'sdp-answer' });
+              }, function (e) {
+                console.log(e);
               });
             });
             break;

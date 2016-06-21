@@ -12,3 +12,10 @@ angular.module('chatAppApp')
         template: '<chat></chat>'
       });
   });
+
+
+angular.module('chatAppApp').filter("trustUrl", ['$sce', function ($sce) {
+    return function (recordingUrl) {
+        return $sce.trustAsResourceUrl(recordingUrl);
+    };
+}]);
