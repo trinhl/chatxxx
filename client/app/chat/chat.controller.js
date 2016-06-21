@@ -51,6 +51,13 @@ class ChatComponent {
     };
   }
 
+  autoScrollBot() {
+    $(document).ready(function(){
+      $('.messages').animate({
+        scrollTop: $('.messages')[0].scrollHeight}, 1000);
+      });
+  }
+
  $onInit() {
    this.$http.get('/api/message?room_name=' + this.roomName).then(response => {
      this.receiveMess = response.data;
@@ -70,8 +77,8 @@ addMessage() {
   if (this.newMessage) {
 		var data = { mess: this.newMessage, user_id: this.user._id, room_name: this.roomName, email: this.user.email, user_name: this.user.name };
 		this.$http.post('/api/message', data);
-		this.newMessage = '';
     this.autoScrollBot();
+		this.newMessage = '';
   }
 }
 
@@ -215,13 +222,6 @@ startVideo() {
       console.error(error);
     }
   }
-}
-
-autoScrollBot() {
-  $(document).ready(function(){
-    $('.messages').animate({
-      scrollTop: $('.messages')[0].scrollHeight}, 2000);
-    });
 }
 
   join() {

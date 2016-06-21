@@ -1,10 +1,14 @@
-.setting h1 {
+.login h1 {
   color: #636363;
   font-weight: 300;
   text-align: center;
 }
 
-.setting form {
+.signup{
+  text-align: center;
+  margin: 0px 50px;
+}
+.login form {
   width: 380px;
   margin: 4em auto;
   padding: 3em 2em 2em 2em;
@@ -13,18 +17,38 @@
   box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
 }
 
-.setting input {
+.login input {
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   -webkit-appearance: none;
   display: block;
+  background: #fafafa;
   color: #636363;
   width: 100%;
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #757575;
 }
-.setting button {
+.login input[type="email"]{
+  padding-bottom: 5px;
+}
+
+.login input:focus { outline: none; }
+.form-signin label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  transition: all 0.2s ease;
+}
+.checkbox label{
+  font-size: 15px;
+}
+.checkbox input[type="checkbox"]{
+  margin-left: -174px;
+  margin-top: 6px;
+}
+
+.login button {
   position: relative;
   display: inline-block;
   padding: 12px 24px;
@@ -43,16 +67,10 @@
   cursor: pointer;
   transition: all 0.15s ease;
 }
-.setting button:focus { outline: 0; }
-.setting button {
+.login button:focus { outline: 0; }
+.login button {
   background: #4a89dc;
   text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
 }
 
-.setting button:hover { background: #357bd8; }
-
-#save {
-  width: 100px;
-  margin: 0px 100px;
-  padding-left: 30px;
-}
+.login button:hover { background: #357bd8; }
