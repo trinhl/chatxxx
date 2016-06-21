@@ -23,12 +23,13 @@ class ChatComponent {
 
 
     var stream;
-    VideoStream.get()
-    .then(function(s) {
+    VideoStream.get().then(function(s) {
       stream = s;
       Room.init(stream);
       stream = URL.createObjectURL(stream);
       Room.joinRoom($stateParams.room_name);
+
+      console.log('Room', Room)
     }, function () {
       $scope.error = 'No audio/video permissions. Please refresh your browser and allow the audio/video capturing.';
     });
@@ -40,12 +41,16 @@ class ChatComponent {
         stream: URL.createObjectURL(peer.stream)
       });
     });
+
     Room.on('peer.disconnected', function (peer) {
       console.log('Client disconnected, removing stream');
       $scope.peers = $scope.peers.filter(function (p) {
         return p.id !== peer.id;
       });
     });
+
+    $scope.currentStream = $sce.trustAsResourceUrl(stream);
+
     $scope.getLocalVideo = function () {
       return $sce.trustAsResourceUrl(stream);
     };
