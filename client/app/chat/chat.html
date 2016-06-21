@@ -15,8 +15,13 @@
 		<video id="local" autoplay ></video> -->
 
 		<video-player vid-src="{{getLocalVideo()}}"></<video-player>
-			<video-player trust-src="{{getLocalVideo()}}"></<video-player>
-				<video id="remote" src="{{getLocalVideo()}}" ng-if="getLocalVideo()" ng-src="getLocalVideo()" autoplay></video>
+			<video-player trust-src="{{getLocalVideo()}}"></video-player>
+
+				<video id="local" ng-src="{{currentStream}}" autoplay></video>
+
+				<div ng-repeat="peer in peers">
+					<video ng-src="{{peer.stream}}"></video>
+				</div>
 
 				<div id="errorMsg">{{error}}</div>
 			</div>

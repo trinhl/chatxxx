@@ -49,7 +49,8 @@ class ChatComponent {
       });
     });
 
-  
+    $scope.currentStream = $sce.trustAsResourceUrl(stream);
+
     $scope.getLocalVideo = function () {
       return $sce.trustAsResourceUrl(stream);
     };
