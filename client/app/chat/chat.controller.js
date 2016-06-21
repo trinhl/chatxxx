@@ -29,17 +29,55 @@ class ChatComponent {
       stream = URL.createObjectURL(stream);
       Room.joinRoom($stateParams.room_name);
 
-      console.log('Room', Room)
+      var localStreamUrl = $sce.trustAsResourceUrl(stream)
+      var videoLocal = $('<video />', {
+          id: 'video',
+          src: localStreamUrl,
+          autoplay: true
+      })
+
+      $('#local').html(videoLocal);
+
+
     }, function () {
       $scope.error = 'No audio/video permissions. Please refresh your browser and allow the audio/video capturing.';
     });
+
+
     $scope.peers = [];
+
     Room.on('peer.stream', function (peer) {
       console.log('Client connected, adding new stream');
-      $scope.peers.push({
+      var newS = {
         id: peer.id,
         stream: URL.createObjectURL(peer.stream)
-      });
+      };
+
+      $scope.peers.push(newS);
+
+      var localStreamUrl = $sce.trustAsResourceUrl(newS.stream)
+        var videoLocal = $('<video />', {
+          src: localStreamUrl,
+          autoplay: true
+        })
+
+        videoLocal.appendTo($('#remote'))
+
+      console.log('$scope.peers', $scope.peers)
+
+      // var newBlock = $('<div />')
+      // for (var i in $scope.peers) {
+
+      //   var localStreamUrl = $sce.trustAsResourceUrl($scope.peers[i].stream)
+      //   var videoLocal = $('<video />', {
+      //     src: localStreamUrl,
+      //     autoplay: true
+      //   })
+
+      //   videoLocal.appendTo(newBlock)
+      // }
+      // $('#remote').html(newBlock)
+
     });
 
     Room.on('peer.disconnected', function (peer) {
@@ -49,7 +87,13 @@ class ChatComponent {
       });
     });
 
-    $scope.currentStream = $sce.trustAsResourceUrl(stream);
+    $scope.$watch('peers', function (oldPeer, newPeer) {
+      console.log('oldPeer, newPeer', oldPeer, newPeer)
+      
+      // $('#remote').html('')
+
+
+    })
 
     $scope.getLocalVideo = function () {
       return $sce.trustAsResourceUrl(stream);

@@ -14,18 +14,12 @@
 		<video id="remote" autoplay></video>
 		<video id="local" autoplay ></video> -->
 
-		<video-player vid-src="{{getLocalVideo()}}"></<video-player>
-			<video-player trust-src="{{getLocalVideo()}}"></video-player>
-
-				<video id="local" ng-src="{{currentStream}}" autoplay></video>
-
-				<div ng-repeat="peer in peers">
-					<video ng-src="{{peer.stream}}"></video>
-				</div>
+		<div id="remote"></div>
+		<div id="local"></div>
 
 				<div id="errorMsg">{{error}}</div>
-			</div>
-			<br>
+	</div>
+	<br>
 			<div class="col-md-4">
 				<form role="form">
 					<div class="chat">
