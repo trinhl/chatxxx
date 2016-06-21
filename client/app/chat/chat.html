@@ -16,9 +16,9 @@
 
 		<video-player vid-src="{{getLocalVideo()}}"></<video-player>
 			<video-player trust-src="{{getLocalVideo()}}"></<video-player>
-				<video id="remote" src="{{getLocalVideo()}}" autoplay></video>
+				<video id="remote" src="{{getLocalVideo()}}" ng-if="getLocalVideo()" ng-src="getLocalVideo()" autoplay></video>
 
-				<div id="errorMsg"></div>
+				<div id="errorMsg">{{error}}</div>
 			</div>
 			<br>
 			<div class="col-md-4">

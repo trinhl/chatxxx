@@ -3,7 +3,7 @@
 angular.module('chatAppApp')
   .directive('videoPlayer', function ($sce) {
     return {
-        template: '<div><video ng-src="" autoplay></video></div>',
+        template: '<div><video src="{{trustSrc}}" autoplay></video></div>',
         restrict: 'E',
         replace: true,
         scope: {

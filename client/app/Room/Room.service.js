@@ -47,6 +47,7 @@ angular.module('chatAppApp')
       }
 
       function handleMessage(data) {
+        alert(data)
         var pc = getPeerConnection(data.by);
         switch (data.type) {
           case 'sdp-offer':
@@ -103,9 +104,11 @@ angular.module('chatAppApp')
               currentId = id;
               roomId = roomid;
             });
+            
             connected = true;
           }
         },
+
         createRoom: function () {
           var d = $q.defer();
           socket.emit('init', null, function (roomid, id) {
