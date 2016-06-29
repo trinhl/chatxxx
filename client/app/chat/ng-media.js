@@ -13,7 +13,7 @@ var html5VideoController = [
       $http = $injector.get('$http'),
       $templateCache = $injector.get('$templateCache'),
       $compile = $injector.get('$compile');
-  
+
   var exprs = {
     track: $parse($attr.track || ''),
     width: $parse($attr.width || ''),
@@ -140,7 +140,7 @@ var html5VideoController = [
 
   var updateSrc = function(sources) {
     angular.forEach(_sources, function(src, i) {
-      (src.parentNode || src.parentElement).removeChild(src);      
+      (src.parentNode || src.parentElement).removeChild(src);
     });
     _sources = [];
     var last = video.firstChild;
@@ -164,7 +164,7 @@ var html5VideoController = [
 
   var updateTrack = function(tracks) {
     angular.forEach(_tracks, function(track, i) {
-      (track.parentNode || track.parentElement).removeChild(track);      
+      (track.parentNode || track.parentElement).removeChild(track);
     });
     _tracks = [];
     angular.forEach(tracks, function(_src, i) {
@@ -174,7 +174,7 @@ var html5VideoController = [
         track.charset = _src.charset;
         track.srclang = _src.srclang;
         track.label = _src.label;
-        
+
         track.type = _src.type;
         track.media = _src.media;
         src = _src.src;

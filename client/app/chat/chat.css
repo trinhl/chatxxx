@@ -5,3 +5,8 @@ video#local {
   width: 150px;
   height: 150px;
 }
+video#remote {
+  border: 2px solid #DDD;
+  width: 150px;
+  height: 150px;
+}

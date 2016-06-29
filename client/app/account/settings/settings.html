@@ -1,9 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 setting">
       <h1>Thông tin</h1>
-    </div>
-    <div class="col-sm-12">
       <form class="form" name="form" ng-submit="vm.changePassword(form)" novalidate>
 
         <div class="form-group">
@@ -24,7 +22,7 @@
                  required/>
           <p class="help-block"
              ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || vm.submitted)">
-            Password must be at least 3 characters.
+            Mật khẩu phải có ít nhất 3 ký tự.
           </p>
         </div>
 
@@ -37,14 +35,14 @@
                  required=""/>
           <p class="help-block"
              ng-show="form.confirmPassword.$error.match && vm.submitted">
-            Passwords must match.
+            Mật khẩu không trùng khớp.
           </p>
 
         </div>
 
         <p class="help-block"> {{ vm.message }} </p>
 
-        <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+        <button class="btn btn-lg btn-primary" type="submit">Lưu</button>
       </form>
     </div>
   </div>

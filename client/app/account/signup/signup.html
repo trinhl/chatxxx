@@ -1,34 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
-      <h1>Sign up</h1>
-    </div>
-    <div class="col-sm-12">
+    <div class="col-sm-12 signup">
+      <h1>Đăng ký</h1>
       <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
                                             'has-error': form.name.$invalid && vm.submitted }">
-          <label>Name</label>
+          <label>Tên</label>
 
           <input type="text" name="name" class="form-control" ng-model="vm.user.name"
                  required/>
           <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
-            A name is required
+            Tên không được bỏ trống
           </p>
         </div>
 
         <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
                                             'has-error': form.email.$invalid && vm.submitted }">
-          <label>Email</label>
+          <label>Địa chỉ email</label>
 
           <input type="email" name="email" class="form-control" ng-model="vm.user.email"
                  required
                  mongoose-error/>
           <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
-            Doesn't look like a valid email.
+            Địa chỉ email không hợp lệ.
           </p>
           <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
-            What's your email address?
+            Địa chỉ email không được bỏ trống
           </p>
           <p class="help-block" ng-show="form.email.$error.mongoose">
             {{ vm.errors.email }}
@@ -37,7 +35,7 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
                                             'has-error': form.password.$invalid && vm.submitted }">
-          <label>Password</label>
+          <label>Mật khẩu</label>
 
           <input type="password" name="password" class="form-control" ng-model="vm.user.password"
                  ng-minlength="3"
@@ -45,7 +43,7 @@
                  mongoose-error/>
           <p class="help-block"
              ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
-            Password must be at least 3 characters.
+            Mật khẩu phải có ít nhất 3 ký tự.
           </p>
           <p class="help-block" ng-show="form.password.$error.mongoose">
             {{ vm.errors.password }}
@@ -54,31 +52,31 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
                                             'has-error': form.confirmPassword.$invalid && vm.submitted }">
-          <label>Confirm Password</label>
+          <label>Nhập lại mật khẩu</label>
           <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
                  match="vm.user.password"
                  ng-minlength="3" required/>
           <p class="help-block"
              ng-show="form.confirmPassword.$error.match && vm.submitted">
-            Passwords must match.
+            Mật khẩu không trùng khớp.
           </p>
         </div>
 
         <div>
           <button class="btn btn-inverse btn-lg btn-register" type="submit">
-            Sign up
+            Đăng ký
           </button>
-          <a class="btn btn-default btn-lg btn-login" ui-sref="login">
-            Login
-          </a>
+          <label>
+            Bạn đã có tài khoản.
+            <a ui-sref="login">
+              Đăng nhập
+            </a>
+          </label>
+
         </div>
 
         <hr/>
-        <div class="row">
-          <div class="col-sm-4 col-md-3">
             <oauth-buttons classes="btn-block"></oauth-buttons>
-          </div>
-        </div>
       </form>
     </div>
   </div>

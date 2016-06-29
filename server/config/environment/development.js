@@ -6,7 +6,7 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://0.0.0.0/chatapp-dev'
+    uri: 'mongodb://localhost/chatapp-dev'
   },
 
   // Seed database on startup
